@@ -1,4 +1,4 @@
-package cloud.testcontainers.javasample;
+package cloud.testcontainers.example;
 
 import com.github.dockerjava.api.DockerClient;
 import com.github.dockerjava.api.model.Info;
