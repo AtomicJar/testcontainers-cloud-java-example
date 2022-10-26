@@ -1,4 +1,4 @@
-package cloud.testcontainers.javasample;
+package cloud.testcontainers.example;
 
 public class PrettyStrings {
 

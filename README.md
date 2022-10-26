@@ -1,12 +1,12 @@
-# testcontainers-cloud-java-sample
+# testcontainers-cloud-java-example
 
 The current repository helps you to verify that you configured your [Testcontainers Cloud][tcc] agent correctly in your local environment.
 
 ## Clone the repository and run the first Testcontainer test suite
 
 ```
-git clone https://github.com/AtomicJar/testcontainers-cloud-java-sample
-cd testcontainers-cloud-java-sample
+git clone https://github.com/AtomicJar/testcontainers-cloud-java-example
+cd testcontainers-cloud-java-example
 ./gradlew test
 ```
 
