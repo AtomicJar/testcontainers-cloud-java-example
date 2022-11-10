@@ -3,12 +3,14 @@ package cloud.testcontainers.example;
 import com.github.dockerjava.api.DockerClient;
 import com.github.dockerjava.api.model.Info;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.testcontainers.DockerClientFactory;
 import org.testcontainers.containers.GenericContainer;
 import org.testcontainers.utility.DockerImageName;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+@ExtendWith(TccTestWatcher.class)
 public class TestcontainersCloudFirstTest {
 
     @Test
@@ -27,7 +29,7 @@ public class TestcontainersCloudFirstTest {
         Info dockerInfo = client.infoCmd().exec();
 
         assertThat(dockerInfo.getServerVersion())
-                .as("Docker Client is connected to Testcontainers Cloud")
+                .as("Docker Client has to be connected to Testcontainers Cloud")
                 .contains("testcontainerscloud");
 
         System.out.println(PrettyStrings.logo);
