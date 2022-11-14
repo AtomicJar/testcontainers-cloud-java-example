@@ -17,8 +17,8 @@ repositories {
 
 dependencies {
     // junit
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.0'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.9.0'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.9.1'
 
     // testcontainers
     testImplementation platform('org.testcontainers:testcontainers-bom:1.17.5')
@@ -26,7 +26,7 @@ dependencies {
     testImplementation 'org.testcontainers:junit-jupiter'
 
     // commons
-    testImplementation 'ch.qos.logback:logback-classic:1.4.3'
+    testImplementation 'ch.qos.logback:logback-classic:1.4.4'
     testImplementation 'org.assertj:assertj-core:3.23.1'
 }
 
