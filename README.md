@@ -1,6 +1,7 @@
 # testcontainers-cloud-java-example
 
 The current repository helps you to verify that you configured your [Testcontainers Cloud][tcc] agent correctly in your local environment.
+To bootstrap an actual project, please refer to the [Testcontainers Java Quickstart](https://github.com/testcontainers/testcontainers-java-spring-boot-quickstart).
 
 ## Clone the repository and run the first Testcontainer test suite
 
