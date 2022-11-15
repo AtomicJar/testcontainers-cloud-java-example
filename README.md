@@ -7,7 +7,7 @@ The current repository helps you to verify that you configured your [Testcontain
 ```
 git clone https://github.com/AtomicJar/testcontainers-cloud-java-example
 cd testcontainers-cloud-java-example
-./gradlew test
+./mvnw test
 ```
 
 ## Verify the agent is running
