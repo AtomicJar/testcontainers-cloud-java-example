@@ -8,7 +8,6 @@ To bootstrap an actual project, please refer to the [Testcontainers Java Quickst
 ```
 git clone https://github.com/AtomicJar/testcontainers-cloud-java-example
 cd testcontainers-cloud-java-example
-./mvnw test
 ```
 
 ## Verify the agent is running
@@ -31,7 +30,11 @@ To download the agent for local usage, check the [download page here][tcc-downlo
 
 ## Run the test suite
 
-`./gradlew test`
+### Maven
+Run `./mvnw test`
+
+### Gradle
+Run `./gradlew test`
 
 ### Your environment is correctly configured if
 
