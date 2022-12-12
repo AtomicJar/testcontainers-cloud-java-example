@@ -31,7 +31,7 @@ To download the agent for local usage, check the [download page here][tcc-downlo
 
 ## Run the test suite
 
-`./gradlew test`
+`./mvnw test`
 
 ### Your environment is correctly configured if
 
