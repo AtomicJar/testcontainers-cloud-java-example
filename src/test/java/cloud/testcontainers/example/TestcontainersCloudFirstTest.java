@@ -5,7 +5,7 @@ import com.github.dockerjava.api.model.Info;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.testcontainers.DockerClientFactory;
-import org.testcontainers.containers.GenericContainer;
+import org.testcontainers.containers.KafkaContainer;
 import org.testcontainers.utility.DockerImageName;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -15,11 +15,8 @@ public class TestcontainersCloudFirstTest {
 
     @Test
     public void canRunContainers() {
-        try (
-                GenericContainer<?> container = new GenericContainer<>(DockerImageName.parse("redis:6.0.5"))
-                        .withExposedPorts(6379)
-        ) {
-            container.start();
+        try (KafkaContainer kafka = new KafkaContainer(DockerImageName.parse("confluentinc/cp-kafka:6.2.1"))) {
+            kafka.start();
         }
     }
 
