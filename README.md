@@ -13,7 +13,7 @@ cd testcontainers-cloud-java-example
 
 ## Verify the agent is running
 
-✅ __Passive State__: Agent awaiting a Testcontainers test to be executed. 
+✅ __Passive State__: Agent awaiting a Testcontainers test to be executed.
 
 ![agent-running](./docs/passive-connection.png)
 
@@ -37,7 +37,46 @@ To download the agent for local usage, check the [download page here][tcc-downlo
 
 Test output:
 
-![success](./docs/success.png)
+```shell
+                                         /
+                                       /////////
+                                    ///////////////
+                                   /////////////////
+                                      /////////////
+                                     %%   ////   %
+                                     %%    //   %%
+                                   %%      //      %
+                                 %%        ////      %
+                                 %     /////////     %
+                                  % /////////////// %%
+                                    %%%%%%%%%%%%%%%
+
+    /%%%%%%    /%%                             /%%              /%%%%%
+   /%%__  %%  | %%                            |__/             |__  %%
+  | %%  \ %% /%%%%%%    /%%%%%%  /%%%%%%/%%%%  /%%  /%%%%%%%      | %%  /%%%%%%   /%%%%%%
+  | %%%%%%%%|_  %%_/   /%%__  %%| %%_  %%_  %%| %% /%%_____/      | %% |____  %% /%%__  %%
+  | %%__  %%  | %%    | %%  \ %%| %% \ %% \ %%| %%| %%       /%%  | %%  /%%%%%%%| %%  \__/
+  | %%  | %%  | %% /%%| %%  | %%| %% | %% | %%| %%| %%      | %%  | %% /%%__  %%| %%
+  | %%  | %%  |  %%%%/|  %%%%%%/| %% | %% | %%| %%|  %%%%%%%|  %%%%%%/|  %%%%%%%| %%
+  |__/  |__/   \___/   \______/ |__/ |__/ |__/|__/ \_______/ \______/  \_______/|__/
+
+
+  Congratulations on running your first test on Testcontainers Cloud! 🎉
+  You can now return to the website to complete your onboarding.
+
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 19.278 s - in cloud.testcontainers.example.TestcontainersCloudFirstTest
+[INFO]
+[INFO] Results:
+[INFO]
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0
+[INFO]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  34.316 s
+[INFO] Finished at: 2023-05-16T18:19:21+02:00
+[INFO] ------------------------------------------------------------------------
+```
 
 Agent status:
 
