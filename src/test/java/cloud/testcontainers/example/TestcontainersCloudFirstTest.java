@@ -5,9 +5,12 @@ import com.github.dockerjava.api.model.Info;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.testcontainers.DockerClientFactory;
-import org.testcontainers.containers.KafkaContainer;
+import org.testcontainers.containers.PostgreSQLContainer;
 import org.testcontainers.utility.DockerImageName;
 
+import java.util.Properties;
+
+import static org.assertj.core.api.Assertions.anyOf;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @ExtendWith(TccTestWatcher.class)
@@ -15,8 +18,10 @@ public class TestcontainersCloudFirstTest {
 
     @Test
     public void canRunContainers() {
-        try (KafkaContainer kafka = new KafkaContainer(DockerImageName.parse("confluentinc/cp-kafka:6.2.1"))) {
-            kafka.start();
+
+        try (PostgreSQLContainer postgreSQLContainer = new PostgreSQLContainer("postgres:15-alpine")) {
+            postgreSQLContainer.start();
+
         }
     }
 
@@ -25,10 +30,21 @@ public class TestcontainersCloudFirstTest {
         DockerClient client = DockerClientFactory.instance().client();
         Info dockerInfo = client.infoCmd().exec();
 
-        assertThat(dockerInfo.getServerVersion())
-                .as("Docker Client has to be connected to Testcontainers Cloud")
-                .contains("testcontainerscloud");
+        String serverVersion = dockerInfo.getServerVersion();
+        assertThat(serverVersion)
+                .as("Docker Client is configured via the Testcontainers desktop app")
+                .satisfiesAnyOf(
+                        dockerString -> assertThat(dockerString).contains("Testcontainers Desktop"),
+                        dockerString -> assertThat(dockerString).contains("testcontainerscloud")
+                        );
 
-        System.out.println(PrettyStrings.logo);
+        String runtimeName = serverVersion;
+        if (runtimeName.contains("testcontainerscloud")) {
+            runtimeName = "Testcontainers Cloud";
+        }
+        if (serverVersion.contains("Testcontainers Desktop")) {
+            runtimeName += " via Testcontainers Desktop app";
+        }
+        System.out.println(PrettyStrings.getLogo(runtimeName));
     }
 }

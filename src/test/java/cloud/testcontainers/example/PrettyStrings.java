@@ -25,8 +25,13 @@ public class PrettyStrings {
             "  |__/  |__/   \\___/   \\______/ |__/ |__/ |__/|__/ \\_______/ \\______/  \\_______/|__/    \n" +
             "  \n" +
             "  \n" +
-            "  Congratulations on running your first test on Testcontainers Cloud! 🎉\n" +
+            "  Congratulations on running your first test! 🎉\n" +
+            "  Environment used: \n" +
+            "      ::::::\n" +
+            " \n" +
             "  You can now return to the website to complete your onboarding.\n" +
+            " \n" +
+            " \n" +
             "";
 
     public static String ohNo = "" +
@@ -37,4 +42,8 @@ public class PrettyStrings {
         "╚██████╔╝██║  ██║    ██║ ╚████║╚██████╔╝    ╚═╝      ╚██╗\n" +
         " ╚═════╝ ╚═╝  ╚═╝    ╚═╝  ╚═══╝ ╚═════╝               ╚═╝\n" +
         "                                                         ";
+
+    public static String getLogo(String runtimeName) {
+        return logo.replaceAll("::::::", runtimeName);
+    }
 }
