@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.testcontainers.DockerClientFactory;
 import org.testcontainers.containers.PostgreSQLContainer;
+import org.testcontainers.images.builder.Transferable;
 import org.testcontainers.utility.DockerImageName;
 
 import java.util.Properties;
@@ -17,11 +18,10 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class TestcontainersCloudFirstTest {
 
     @Test
-    public void canRunContainers() {
-
-        try (PostgreSQLContainer postgreSQLContainer = new PostgreSQLContainer("postgres:15-alpine")) {
+    public void createPostgreSQLContainer() {
+        try (PostgreSQLContainer<?> postgreSQLContainer = new PostgreSQLContainer<>("postgres:15-alpine")
+                .withCopyToContainer(Transferable.of(initsql), "/docker-entrypoint-initdb.d/init.sql")) {
             postgreSQLContainer.start();
-
         }
     }
 
@@ -47,4 +47,18 @@ public class TestcontainersCloudFirstTest {
         }
         System.out.println(PrettyStrings.getLogo(runtimeName));
     }
+
+    private static final String initsql =
+            "create table quotes\n" +
+                "(\n" +
+                "    id         bigserial     not null,\n" +
+                "    quote       varchar(1023)  not null,\n" +
+                "    rating      numeric(5, 2) not null,\n" +
+                "    primary key (id)\n" +
+            ");\n" +
+            "\n" +
+            "insert into quotes(quote, rating)\n" +
+            "values ('Testcontainers is pretty amazing', 21.00),\n" +
+            "       ('Integration tests are good too', 34.50)\n" +
+            ";";
 }
