@@ -1,6 +1,6 @@
 # testcontainers-cloud-java-example
 
-This is an example repository with a simple test confirming proper connection to your [Testcontainers Cloud](https://app.testcontainers.cloud) account. 
+This is an example repository with a simple test confirming proper connection from Testcontainers Desktop (or the CI agent) to your [Testcontainers Cloud](https://app.testcontainers.cloud) account.
 To bootstrap an actual project, please refer to the [Testcontainers Java Quickstart](https://github.com/testcontainers/testcontainers-java-spring-boot-quickstart).
 
 ## Clone the repository and run the first Testcontainers test suite
@@ -19,29 +19,14 @@ cd testcontainers-cloud-java-example
 The test output should show the AtomicJar logo and which container runtime was used:  
 
 ```shell
-                                         /
-                                       /////////
-                                    ///////////////
-                                   /////////////////
-                                      /////////////
-                                     %%   ////   %
-                                     %%    //   %%
-                                   %%      //      %
-                                 %%        ////      %
-                                 %     /////////     %
-                                  % /////////////// %%
-                                    %%%%%%%%%%%%%%%
 
-    /%%%%%%    /%%                             /%%              /%%%%%
-   /%%__  %%  | %%                            |__/             |__  %%
-  | %%  \ %% /%%%%%%    /%%%%%%  /%%%%%%/%%%%  /%%  /%%%%%%%      | %%  /%%%%%%   /%%%%%%
-  | %%%%%%%%|_  %%_/   /%%__  %%| %%_  %%_  %%| %% /%%_____/      | %% |____  %% /%%__  %%
-  | %%__  %%  | %%    | %%  \ %%| %% \ %% \ %%| %%| %%       /%%  | %%  /%%%%%%%| %%  \__/
-  | %%  | %%  | %% /%%| %%  | %%| %% | %% | %%| %%| %%      | %%  | %% /%%__  %%| %%
-  | %%  | %%  |  %%%%/|  %%%%%%/| %% | %% | %%| %%|  %%%%%%%|  %%%%%%/|  %%%%%%%| %%
-  |__/  |__/   \___/   \______/ |__/ |__/ |__/|__/ \_______/ \______/  \_______/|__/
-
-
+████████╗███████╗███████╗████████╗ ██████╗ ██████╗ ███╗   ██╗████████╗ █████╗ ██╗███╗   ██╗███████╗██████╗ ███████╗ 
+╚══██╔══╝██╔════╝██╔════╝╚══██╔══╝██╔════╝██╔═══██╗████╗  ██║╚══██╔══╝██╔══██╗██║████╗  ██║██╔════╝██╔══██╗██╔════╝ 
+   ██║   █████╗  ███████╗   ██║   ██║     ██║   ██║██╔██╗ ██║   ██║   ███████║██║██╔██╗ ██║█████╗  ██████╔╝███████╗ 
+   ██║   ██╔══╝  ╚════██║   ██║   ██║     ██║   ██║██║╚██╗██║   ██║   ██╔══██║██║██║╚██╗██║██╔══╝  ██╔══██╗╚════██║ 
+   ██║   ███████╗███████║   ██║   ╚██████╗╚██████╔╝██║ ╚████║   ██║   ██║  ██║██║██║ ╚████║███████╗██║  ██║███████║ 
+   ╚═╝   ╚══════╝╚══════╝   ╚═╝    ╚═════╝ ╚═════╝ ╚═╝  ╚═══╝   ╚═╝   ╚═╝  ╚═╝╚═╝╚═╝  ╚═══╝╚══════╝╚═╝  ╚═╝╚══════╝ 
+  
   
   Congratulations on running your first test! 🎉
   Runtime used: 
@@ -67,6 +52,6 @@ The test output should show the AtomicJar logo and which container runtime was u
 
 [Testcontainers Desktop](https://testcontainers.com/desktop/) helps developers with common tasks such as debugging your Testcontainers-powered dependencies. Let's practice!
 
-The tests in this project create a PostgreSQL database and populate it with sample data. You can configure [set a fixed port](https://newsletter.testcontainers.com/announcements/set-fixed-ports-to-easily-debug-development-services) for the `postgres` service, then [freeze containers shutdown](https://newsletter.testcontainers.com/announcements/freeze-containers-to-prevent-their-shutdown-while-you-debug) to easily connect to the database from your IDE. 
+The tests in this project create a PostgreSQL database and populate it with sample data. You can [set a fixed port](https://newsletter.testcontainers.com/announcements/set-fixed-ports-to-easily-debug-development-services) for the `postgres` service, then [freeze containers shutdown](https://newsletter.testcontainers.com/announcements/freeze-containers-to-prevent-their-shutdown-while-you-debug) to easily connect to the database from your IDE after your tests run. 
 
 See if you can inspect the database. Username: `test`. Password: `test`.

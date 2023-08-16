@@ -10,7 +10,7 @@ public class TccTestWatcher implements TestWatcher {
         System.out.println();
         System.out.println(PrettyStrings.ohNo);
         System.out.println();
-        System.out.println("It seems you are not running Testcontainers desktop application nor Testcontainers Cloud agent. Have you started it?");
+        System.out.println("It seems you are not running Testcontainers Desktop nor the CI agent. Have you started it?");
         System.out.println();
     }
 }
