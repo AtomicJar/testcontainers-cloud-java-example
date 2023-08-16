@@ -1,7 +1,7 @@
 # testcontainers-cloud-java-example
 
-This is an example repository with a simple test confirming proper connection from Testcontainers Desktop (or the CI agent) to your [Testcontainers Cloud](https://app.testcontainers.cloud) account.
-To bootstrap an actual project, please refer to the [Testcontainers Java Quickstart](https://github.com/testcontainers/testcontainers-java-spring-boot-quickstart).
+This is an example repository with a simple test confirming proper connection to your [Testcontainers Cloud](https://app.testcontainers.cloud) account or local Testcontainers Desktop installation. 
+For details on how to bootstrap Testcontainers in an actual project, please refer to the [Testcontainers Java Quickstart](https://github.com/testcontainers/testcontainers-java-spring-boot-quickstart).
 
 ## Clone the repository and run the first Testcontainers test suite
 
@@ -52,6 +52,7 @@ The test output should show the AtomicJar logo and which container runtime was u
 
 [Testcontainers Desktop](https://testcontainers.com/desktop/) helps developers with common tasks such as debugging your Testcontainers-powered dependencies. Let's practice!
 
-The tests in this project create a PostgreSQL database and populate it with sample data. You can [set a fixed port](https://newsletter.testcontainers.com/announcements/set-fixed-ports-to-easily-debug-development-services) for the `postgres` service, then [freeze containers shutdown](https://newsletter.testcontainers.com/announcements/freeze-containers-to-prevent-their-shutdown-while-you-debug) to easily connect to the database from your IDE after your tests run. 
+The tests in this project create a PostgreSQL database and populate it with sample data. You can configure Testcontainers Desktop [to set a fixed port](https://newsletter.testcontainers.com/announcements/set-fixed-ports-to-easily-debug-development-services) for the `postgres` service, then enable [freeze containers shutdown](https://newsletter.testcontainers.com/announcements/freeze-containers-to-prevent-their-shutdown-while-you-debug) to easily connect to the database from your IDE. 
 
 See if you can inspect the database. Username: `test`. Password: `test`.
+ 
