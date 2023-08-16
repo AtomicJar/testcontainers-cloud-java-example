@@ -1,6 +1,6 @@
 # testcontainers-cloud-java-example
 
-The current repository helps you to verify that you configured your [Testcontainers Desktop](https://testcontainers.com/desktop) or Testcontainers Cloud agent correctly in your local environment.
+This is an example repository with a simple test confirming proper connection to your [Testcontainers Cloud](https://app.testcontainers.cloud) account. 
 To bootstrap an actual project, please refer to the [Testcontainers Java Quickstart](https://github.com/testcontainers/testcontainers-java-spring-boot-quickstart).
 
 ## Clone the repository and run the first Testcontainers test suite
@@ -8,16 +8,15 @@ To bootstrap an actual project, please refer to the [Testcontainers Java Quickst
 ```
 git clone https://github.com/AtomicJar/testcontainers-cloud-java-example
 cd testcontainers-cloud-java-example
-./mvnw test
 ```
 
 ## Run the test suite
 
 `./mvnw test`
 
-### Your environment is correctly configured if
+## Confirm your environment is configured correctly
 
-Test output shows the AtomicJar logo and details of the Docker environment used:  
+The test output should show the AtomicJar logo and which container runtime was used:  
 
 ```shell
                                          /
@@ -45,7 +44,7 @@ Test output shows the AtomicJar logo and details of the Docker environment used:
 
   
   Congratulations on running your first test! 🎉
-  Environment used: 
+  Runtime used: 
       Testcontainers Cloud
  
   You can now return to the website to complete your onboarding.
@@ -64,12 +63,10 @@ Test output shows the AtomicJar logo and details of the Docker environment used:
 [INFO] ------------------------------------------------------------------------
 ```
 
-Congratulations, you can return to the web application to continue your onboarding: 
-[app.testcontainers.cloud](https://app.testcontainers.cloud)
+## (optional) Use Testcontainers Desktop to easily debug the database
 
-# Optional next steps
+[Testcontainers Desktop](https://testcontainers.com/desktop/) helps developers with common tasks such as debugging your Testcontainers-powered dependencies. Let's practice!
 
-[Testcontainers Desktop app](https://testcontainers.com/desktop/) helps with common tasks like debugging when working with Testcontainers setups. 
-The tests in this project create a PostgreSQL database and populate it with sample data. You can configure [fixed ports](https://newsletter.testcontainers.com/announcements/set-fixed-ports-to-easily-debug-development-services) and use [freeze containers](https://newsletter.testcontainers.com/announcements/freeze-containers-to-prevent-their-shutdown-while-you-debug) features of Testcontainers desktop app to try connecting your IDE to the database like you would when debugging tests.
+The tests in this project create a PostgreSQL database and populate it with sample data. You can configure [set a fixed port](https://newsletter.testcontainers.com/announcements/set-fixed-ports-to-easily-debug-development-services) for the `postgres` service, then [freeze containers shutdown](https://newsletter.testcontainers.com/announcements/freeze-containers-to-prevent-their-shutdown-while-you-debug) to easily connect to the database from your IDE. 
 
-
+See if you can inspect the database. Username: `test`. Password: `test`.

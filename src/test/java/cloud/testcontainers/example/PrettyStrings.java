@@ -26,7 +26,7 @@ public class PrettyStrings {
             "  \n" +
             "  \n" +
             "  Congratulations on running your first test! 🎉\n" +
-            "  Environment used: \n" +
+            "  Runtime used: \n" +
             "      ::::::\n" +
             " \n" +
             "  You can now return to the website to complete your onboarding.\n" +
