@@ -19,7 +19,7 @@ public class TestcontainersCloudFirstTest {
 
     @Test
     public void createPostgreSQLContainer() {
-        try (PostgreSQLContainer<?> postgreSQLContainer = new PostgreSQLContainer<>("postgres:15-alpine")
+        try (PostgreSQLContainer<?> postgreSQLContainer = new PostgreSQLContainer<>("postgres:14-alpine")
                 .withCopyToContainer(Transferable.of(initsql), "/docker-entrypoint-initdb.d/init.sql")) {
             postgreSQLContainer.start();
         }
@@ -38,9 +38,9 @@ public class TestcontainersCloudFirstTest {
                         dockerString -> assertThat(dockerString).contains("testcontainerscloud")
                         );
 
-        String runtimeName = serverVersion;
-        if (runtimeName.contains("testcontainerscloud")) {
-            runtimeName = "Testcontainers Cloud";
+        String runtimeName = "Testcontainers Cloud";
+        if (!serverVersion.contains("testcontainerscloud")) {
+            runtimeName = dockerInfo.getOperatingSystem();
         }
         if (serverVersion.contains("Testcontainers Desktop")) {
             runtimeName += " via Testcontainers Desktop app";
@@ -49,16 +49,20 @@ public class TestcontainersCloudFirstTest {
     }
 
     private static final String initsql =
-            "create table quotes\n" +
+            "create table guides\n" +
                 "(\n" +
                 "    id         bigserial     not null,\n" +
-                "    quote       varchar(1023)  not null,\n" +
-                "    rating      numeric(5, 2) not null,\n" +
+                "    title      varchar(1023)  not null,\n" +
+                "    url        varchar(1023) not null,\n" +
                 "    primary key (id)\n" +
             ");\n" +
             "\n" +
-            "insert into quotes(quote, rating)\n" +
-            "values ('Testcontainers is pretty amazing', 21.00),\n" +
-            "       ('Integration tests are good too', 34.50)\n" +
+            "insert into guides(title, url)\n" +
+            "values ('Getting started with Testcontainers', 'https://testcontainers.com/getting-started/'),\n" +
+            "       ('Getting started with Testcontainers for Java', 'https://testcontainers.com/guides/getting-started-with-testcontainers-for-java/'),\n" +
+            "       ('Getting started with Testcontainers for .NET', 'https://testcontainers.com/guides/getting-started-with-testcontainers-for-dotnet/'),\n" +
+            "       ('Getting started with Testcontainers for Node.js', 'https://testcontainers.com/guides/getting-started-with-testcontainers-for-nodejs/'),\n" +
+            "       ('Getting started with Testcontainers for Go', 'https://testcontainers.com/guides/getting-started-with-testcontainers-for-go/'),\n" +
+            "       ('Testcontainers container lifecycle management using JUnit 5', 'https://testcontainers.com/guides/testcontainers-container-lifecycle/')\n" +
             ";";
 }
