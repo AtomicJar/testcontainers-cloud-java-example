@@ -16,7 +16,7 @@ cd testcontainers-cloud-java-example
 
 ## Confirm your environment is configured correctly
 
-The test output should show the AtomicJar logo and which container runtime was used:  
+The test output should show the Testcontainers logo and which container runtime was used:  
 
 ```shell
 
