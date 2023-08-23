@@ -12,7 +12,12 @@ cd testcontainers-cloud-java-example
 
 ## Run the test suite
 
-`./mvnw test`
+```shell
+make test
+```
+
+The `Make` command will run the test suite using `./mvnw test`
+
 
 ## Confirm your environment is configured correctly
 
