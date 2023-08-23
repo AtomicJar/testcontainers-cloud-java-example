@@ -5,18 +5,13 @@ For details on how to bootstrap Testcontainers in an actual project, please refe
 
 ## Clone the repository and run the first Testcontainers test suite
 
-```
+```shell
 git clone https://github.com/AtomicJar/testcontainers-cloud-java-example
 cd testcontainers-cloud-java-example
-```
-
-## Run the test suite
-
-```shell
 make test
 ```
 
-The `Make` command will run the test suite using `./mvnw test`
+The `Make` command will run the test suite using `./mvnw test`.
 
 
 ## Confirm your environment is configured correctly
