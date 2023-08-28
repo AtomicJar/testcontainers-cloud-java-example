@@ -20,7 +20,7 @@ jobs:
           - name: Setup Testcontainers Cloud Client
             uses: atomicjar/testcontainers-cloud-setup-action@main
             with:
-              token: ${{ secrets.TC_CLOUD_TOKEN }}
+              token: ${{ secrets.TCC_SECRET_EXAMPLES }}
           - name: Run example
             run: |
               ./mvnw verify
