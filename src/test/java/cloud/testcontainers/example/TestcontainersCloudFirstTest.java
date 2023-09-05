@@ -1,5 +1,11 @@
 package cloud.testcontainers.example;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 import com.github.dockerjava.api.DockerClient;
 import com.github.dockerjava.api.model.Info;
 import org.junit.jupiter.api.Test;
@@ -7,22 +13,24 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.testcontainers.DockerClientFactory;
 import org.testcontainers.containers.PostgreSQLContainer;
 import org.testcontainers.images.builder.Transferable;
-import org.testcontainers.utility.DockerImageName;
 
-import java.util.Properties;
-
-import static org.assertj.core.api.Assertions.anyOf;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @ExtendWith(TccTestWatcher.class)
 public class TestcontainersCloudFirstTest {
 
     @Test
-    public void createPostgreSQLContainer() {
+    public void createPostgreSQLContainer() throws SQLException {
         try (PostgreSQLContainer<?> postgreSQLContainer = new PostgreSQLContainer<>("postgres:14-alpine")
                 .withCopyToContainer(Transferable.of(initsql), "/docker-entrypoint-initdb.d/init.sql")) {
             postgreSQLContainer.start();
-        }
+			Connection connection = DriverManager.getConnection(postgreSQLContainer.getJdbcUrl(), postgreSQLContainer.getUsername(), postgreSQLContainer.getPassword());
+			PreparedStatement preparedStatement = connection.prepareStatement("SELECT COUNT(*) FROM guides");
+			preparedStatement.execute();
+			ResultSet resultSet = preparedStatement.getResultSet();
+			resultSet.next();
+			assertThat(resultSet.getInt(1)).isEqualTo(6);
+		}
     }
 
     @Test
