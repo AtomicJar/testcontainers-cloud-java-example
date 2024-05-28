@@ -1,0 +1,4 @@
+* text=auto
+/.mvn/wrapper/maven-wrapper.properties text
+/mvnw text eol=lf
+/mvnw.cmd text eol=crlf
