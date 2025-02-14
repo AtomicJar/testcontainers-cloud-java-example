@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Arrays;
 
 import com.github.dockerjava.api.DockerClient;
 import com.github.dockerjava.api.model.Info;
@@ -39,12 +40,19 @@ public class TestcontainersCloudFirstTest {
         Info dockerInfo = client.infoCmd().exec();
 
         String serverVersion = dockerInfo.getServerVersion();
-        assertThat(serverVersion)
+        String[] labels = dockerInfo.getLabels();
+
+        boolean isCloudServer = labels != null && Arrays.asList(labels).contains("docker/cloud");
+
+        if (!isCloudServer) {
+            assertThat(serverVersion)
                 .as("Docker Client is configured via the Testcontainers desktop app")
                 .satisfiesAnyOf(
                         dockerString -> assertThat(dockerString).contains("Testcontainers Desktop"),
                         dockerString -> assertThat(dockerString).contains("testcontainerscloud")
-                        );
+                );
+        }
+
 
         String runtimeName = "Testcontainers Cloud";
         if (!serverVersion.contains("testcontainerscloud")) {
