@@ -24,7 +24,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 @ExtendWith(TccTestWatcher.class)
 public class TestcontainersCloudFirstTest {
 
-    public static final String DOCKER_CLOUD_VERSION_LABEL = "com.docker.cloud.version";
+    public static final String DOCKER_CLOUD_VERSION_LABEL = "cloud.docker.run.version";
 
     public static final String TESTCONTAINERS_DESKTOP_APP_NAME = "Testcontainers Desktop";
 
