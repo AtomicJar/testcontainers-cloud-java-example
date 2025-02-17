@@ -74,7 +74,7 @@ public class TestcontainersCloudFirstTest {
             runtimeName = dockerInfo.getOperatingSystem();
         }
         if (serverVersion.contains(TESTCONTAINERS_DESKTOP_APP_NAME)) {
-            runtimeName += " via Testcontainers Desktop app";
+            runtimeName += " via Testcontainers Desktop";
         }
         System.out.println(PrettyStrings.getLogo(runtimeName));
     }
