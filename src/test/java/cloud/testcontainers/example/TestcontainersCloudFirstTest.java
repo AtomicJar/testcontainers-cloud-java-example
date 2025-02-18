@@ -70,7 +70,12 @@ public class TestcontainersCloudFirstTest {
 
     private static void logRuntimeDetails(String serverVersion, Info dockerInfo) {
         String runtimeName = "Testcontainers Cloud";
-        if (!serverVersion.contains(TESTCONTAINERS_CLOUD_VERSION_NAME)) {
+        boolean hasCloudLabel = Stream.of(
+                dockerInfo.getLabels() != null
+                ? dockerInfo.getLabels()
+                : new String[]{}
+        ).anyMatch(label -> label.contains(DOCKER_CLOUD_VERSION_LABEL));
+        if (!serverVersion.contains(TESTCONTAINERS_CLOUD_VERSION_NAME) && !hasCloudLabel) {
             runtimeName = dockerInfo.getOperatingSystem();
         }
         if (serverVersion.contains(TESTCONTAINERS_DESKTOP_APP_NAME)) {
