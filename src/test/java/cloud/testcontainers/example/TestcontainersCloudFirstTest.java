@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.testcontainers.DockerClientFactory;
 import org.testcontainers.containers.PostgreSQLContainer;
+import org.testcontainers.containers.wait.strategy.Wait;
 import org.testcontainers.images.builder.Transferable;
 import org.testcontainers.shaded.com.google.common.collect.Streams;
 
@@ -33,7 +34,8 @@ public class TestcontainersCloudFirstTest {
     @Test
     public void createPostgreSQLContainer() throws SQLException {
         try (PostgreSQLContainer<?> postgreSQLContainer = new PostgreSQLContainer<>("postgres:14-alpine")
-                .withCopyToContainer(Transferable.of(initsql), "/docker-entrypoint-initdb.d/init.sql")) {
+                .withCopyToContainer(Transferable.of(initsql), "/docker-entrypoint-initdb.d/init.sql")
+                .waitingFor(Wait.defaultWaitStrategy())) {
             postgreSQLContainer.start();
             Connection connection = DriverManager.getConnection(postgreSQLContainer.getJdbcUrl(), postgreSQLContainer.getUsername(), postgreSQLContainer.getPassword());
             PreparedStatement preparedStatement = connection.prepareStatement("SELECT COUNT(*) FROM guides");
